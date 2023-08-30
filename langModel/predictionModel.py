@@ -18,7 +18,7 @@ class LanguageDetectionModel:
 
     def load_model(self) -> None:
         """ Load the model """
-        model_file = os.path.join(os.path.dirname(__file__), 'langDetTrained.joblib')
+        model_file = os.path.join(os.path.dirname(__file__), 'langDetTrained1.joblib')
         loaded_model: tuple[Pipeline, list[str]] = joblib.load(model_file)
         model, targets = loaded_model
         self._model = model
