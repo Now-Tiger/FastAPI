@@ -4,8 +4,7 @@ from fastapi import (Depends, FastAPI)
 from fastapi.responses import JSONResponse
 import uvicorn as uv
 
-from database import PredictionOutput
-from predictionModel import LanguageDetectionModel
+from model import LanguageDetectionModel, PredictionOutput
 
 __version__ = '0.1.1'
 
