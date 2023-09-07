@@ -1,5 +1,10 @@
 *__pycache__
 /__pycache__
 *.ini
-project/
 .vscode
+routing-tutorials/
+.DS_Store
+/simpleTodoProj
+/crudPostgresql
+/irisEndPoint
+/LanguageModelDocker
