@@ -1,5 +1,6 @@
 *__pycache__
 /__pycache__
 *.ini
-project/
 .vscode
+.DS_Store
+Data/
