@@ -50,13 +50,9 @@ class Train(object):
         # Implement tokenizer wither stemming and pass it to the countvectorizer.
         pass
 
-    def model(self, inputs: np.ndarray, target: np.ndarray) -> tuple[any, np.float64]:
+    def model(self, inputs: np.ndarray, target: np.ndarray) -> tuple[object, np.float64]:
         clf = LogisticRegression(
-            max_iter=300,
-            C=0.1,
-            random_state=42,
-            solver='sag'
-        ).fit(inputs, target)
+            max_iter=300, C=0.1,random_state=42, solver='sag').fit(inputs, target)
         preds = clf.predict(inputs)
         return (clf, preds)
 
@@ -82,7 +78,7 @@ class Train(object):
     def vectorize(self, inputs: list[str]) -> np.ndarray:
         cv = CountVectorizer(max_features=1000, lowercase=True)
         cv.fit(inputs)
-        transformed = cv.transform(inputs)
+        transformed = cv.transform(inputs).toarray()
         return transformed
 
     def dump(self, model: any) -> None:
@@ -102,7 +98,12 @@ def main() -> None:
         processed_texts, labels, test_size=0.30, random_state=42, stratify=labels, shuffle=True
     )
     # print(train_inp[:9])
-    # instance.build(train_inp, train_target)
+    instance.build(train_inp, train_target)
+    with open("train_model_pipeline-0.1.0.pkl", "rb") as file:
+        model = pickle.load(file=file)
+    
+    pred = model.predict(["Hello there"])
+    print(pred)
 
 
 if __name__ == '__main__':
