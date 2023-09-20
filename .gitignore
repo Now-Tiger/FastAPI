@@ -4,3 +4,5 @@
 .vscode
 .DS_Store
 Data/
+MaliciousUrlsDetection
+EmailPhishingDetection/fraud_email_.csv
