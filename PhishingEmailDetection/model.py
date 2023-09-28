@@ -37,13 +37,13 @@ class EmailDetectionModel:
         self._vectorizer = joblib.load('vectorizer.joblib')
 
     async def predict(self, input: PredictionInput) -> PredictionOutput:
-        """ Runs a prediction.
+        """ Runs a prediction on given input string.
             * if input is empty raise an HTTP 404 error
             * else run prediction
         """
-        if len(input) <= 1:
+        if input.text == None or len(input.text) < 1:
             raise HTTPException(status_code=404, detail="Empty input string provided.")
-        
+
         transformed_text = self._vectorizer.transform([input.text])
         predictions = self._model.predict(transformed_text)
         label = predictions
