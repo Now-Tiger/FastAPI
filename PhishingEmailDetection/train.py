@@ -54,29 +54,13 @@ def main() -> None:
     features = vectorizer.fit_transform(raw.clean.values)
 
     train_inputs, test_inputs, train_target, test_target = split(
-        features,
-        raw.Class.values,
-        test_size=.30,
-        stratify=raw.Class.values,
-        random_state=42)
+        features, raw.Class.values, test_size=.30, stratify=raw.Class.values, random_state=42)
 
     model = Model(train_inputs, train_target)
     model.fit()
 
-    ex = [
-        """swapnil.narwade3@gmail.com Job For You <vacancy@job.shine.com> 
-        Do Not forward this mail, it contains links which allow direct login to your Shine account. 
-        Emailer Dear Swapnil, Recruiter from Mercedes Benz Research And Development India Pvt.Ltd. 
-        is actively hiring"""
-    ]
-
-    ex_feat = vectorizer.transform(ex)
     filename = "email_phishing_detection.0.1.0.joblib"
     # model.save_model(filename=filename)
-
-    m2, _ = joblib.load(filename=filename)
-    ex_pred = m2.predict(ex_feat)
-    print(ex_pred)
 
 
 if __name__ == "__main__":
