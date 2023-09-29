@@ -71,7 +71,7 @@ def main() -> None:
     ]
 
     ex_feat = vectorizer.transform(ex)
-    filename = "phishing.joblib"
+    filename = "email_phishing_detection.0.1.0.joblib"
     # model.save_model(filename=filename)
 
     m2, _ = joblib.load(filename=filename)

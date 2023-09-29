@@ -17,7 +17,7 @@ model = EmailDetectionModel()
 
 @app.get('/')
 async def root() -> dict:
-    return {'message': 'successful submission'}
+    return {'message': 'Hello 🐮'}
 
 
 @app.post("/api/v1/prediction")
