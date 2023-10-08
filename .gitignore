@@ -10,3 +10,4 @@ src/api/gmail_token.json
 src/api/*.py
 src/api/*.txt
 PhishingEmailDetection/fraud_email_.csv
+SoftwareDefects/*.csv
