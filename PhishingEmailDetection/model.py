@@ -8,6 +8,10 @@ from fastapi.exceptions import HTTPException
 from pydantic import BaseModel
 from sklearn.pipeline import Pipeline
 
+from warnings import filterwarnings
+filterwarnings('always')
+filterwarnings('ignore')
+
 
 class PredictionInput(BaseModel):
     text: str
@@ -43,8 +47,8 @@ class EmailDetectionModel:
         """
         if input.text == None or len(input.text) < 1:
             raise HTTPException(status_code=404, detail="Empty input string provided.")
-
-        transformed_text = self._vectorizer.transform([input.text])
-        predictions = self._model.predict(transformed_text)
-        label = predictions
-        return PredictionOutput(label=label)
+        else:
+            transformed_text = self._vectorizer.transform([input.text])
+            predictions = self._model.predict(transformed_text)
+            label = predictions
+            return PredictionOutput(label=label)
