@@ -1,0 +1,19 @@
+name: fastapi
+channels:
+  - defaults
+dependencies:
+  - python==3.11
+  - fastapi
+  - uvicorn-standard
+  - sqlalchemy
+  - psycopg2
+  - scikit-learn
+  - matplotlib
+  - pandas
+  - seaborn
+  - jinja2
+  - python-multipart
+  - python-jose
+  - passlib
+  - pillow=10.1.0
+prefix: /Applications/anaconda3/envs/fastapi
