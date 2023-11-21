@@ -10,5 +10,6 @@ src/api/gmail_token.json
 src/api/*.txt
 PhishingEmailDetection/fraud_email_.csv
 PhishingEmailDetection/*.txt
+PhishingEmailDetection/*.joblib
 crudPostgresql
 src/api/*.py
