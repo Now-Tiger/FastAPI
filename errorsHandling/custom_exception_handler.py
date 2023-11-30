@@ -14,28 +14,31 @@ class UnicornException(Exception):
 
 
 @app.exception_handler(UnicornException)
-async def unicorn_exeption_handler(request: Request, exec: UnicornException) -> JSONResponse:
+async def unicorn_exeption_handler(
+    request: Request, exec: UnicornException
+) -> JSONResponse:
     return JSONResponse(
         status_code=404,
-        content={ 'message': f"Oops! {exec.name} did something! Fall back" }
+        content={"message": f"Oops! {exec.name} did something! Fall back"},
     )
 
 
-@app.get('/unicorns/{name}')
+@app.get("/unicorns/{name}")
 async def read_unicorn(name: str) -> JSONResponse:
-    if name.lower() == 'yolo':
+    if name.lower() == "yolo":
         raise UnicornException(name=name)
-    return { 'Unicron name': name }
+    return {"Unicron name": name}
 
 
-@app.get('/')
-async def welcome() -> PlainTextResponse:
-    return f"Welcome Home Neo!"
+@app.get("/")
+async def welcome() -> JSONResponse:
+    return {"MSG": "Hello"}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     uv.run(
-        'custom_exception_handler:app', 
+        "custom_exception_handler:app",
         reload=True,
         port=8000,
     )
+
