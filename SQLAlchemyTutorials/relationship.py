@@ -13,7 +13,7 @@ from sqlalchemy.orm import (
     declarative_base,
 )
 
-
+# create in memory database and create a session to work
 db = sa.create_engine("sqlite:///:memory:")
 Session = sessionmaker(bind=db)
 Base = declarative_base()
