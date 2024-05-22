@@ -2,7 +2,7 @@ Bugs / issues / fixes are mentioned here
 -----------------------------------------
 
 DATE: 12/08/2023
-DESCRIPTION: FROM THIS DATE USING THIS REPO FROM MACBOOK PRO 16
+DESCRIPTION: FROM THIS DATE USING THIS REPO FROM DIFFERENT MACHINE 
 
 -----------------------------------------
 FastAPI/MongoDB tut - https://www.mongodb.com/languages/python/pymongo-tutorial
